@@ -1,4 +1,4 @@
-name: cart service deployment
+name: user service deployment
 
 on:
   push:
@@ -11,7 +11,7 @@ env:
   PRODUCT_REPO_NAME: ${{secrets.PRODUCT_REPO_NAME}}
 
 jobs:
-  cart-service:
+  user-service:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
@@ -29,7 +29,7 @@ jobs:
       run: docker push "$DOCKER_USER_NAME/$PRODUCT_REPO_NAME:latest"
 
   deploy:
-    needs: [cart-service]
+    needs: [user-service]
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@master
