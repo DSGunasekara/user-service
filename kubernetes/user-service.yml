@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: user-service
-        image: aimasha/user-service
+        image: adsg3160/user-service
         ports:
         - containerPort: 8070
 ---
