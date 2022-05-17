@@ -32,9 +32,8 @@ export const createUser = (async(req, res)=>{
     const { email, userName } = req.body;
     const checkUser = await User.findOne({ email, userName });
     if (checkUser) return res.status(409).send("User already exits");
-    const id = await idGenerator(req.body.role);
 
-    const user = new User({ regNumber: id, ...req.body });
+    const user = new User({ ...req.body });
 
     user.save((error, savedUser) => {
       if (error) return res.status(400).send(error);
